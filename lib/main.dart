@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'data/list_hamburguesas.dart'; // Importamos la lista de hamburguesas.
 import 'data/list_tortas.dart'; // Importamos la lista de tortas.
 import 'data/list_helados.dart'; // Importamos la lista de helados.
+import 'galeria_imagenes_comidas/carousel_slider.dart';
 import 'pages/helados.dart'; // Importamos la página de helados.
 import 'pages/tortas.dart'; // Importamos la página de tortas.
 import 'widgets/food_grid.dart';
@@ -56,11 +57,18 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Image.asset('assets/imgs/logo.png', width: 200, height: 200),
-        title: const Text('My Food Gallery**'),
+        title: const Text('My Food Gallery*', style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.orangeAccent,
       ),
-      body: _widgetOptions()[_selectedIndex], // Muestra la página correspondiente
+      body: Column(
+        children: [
+          ImageCarousel(), // Agrega aquí el carrusel
+          const SizedBox(height: 50),
+          Expanded(child: _widgetOptions()[_selectedIndex]), // Muestra la página correspondiente
+        ],
+      ), 
+    //  body: _widgetOptions()[_selectedIndex], // Muestra la página correspondiente
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
