@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/FoodGrid.dart'; 
+import '../widgets/food_grid.dart'; 
 
 class HeladosPage extends StatelessWidget {
   final List<dynamic> helados;

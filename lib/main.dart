@@ -3,8 +3,9 @@ import 'dart:convert';
 import 'data/list_hamburguesas.dart'; // Importamos la lista de hamburguesas.
 import 'data/list_tortas.dart'; // Importamos la lista de tortas.
 import 'data/list_helados.dart'; // Importamos la lista de helados.
-import 'pages/helados.dart'; // Importamos la lista de helados.
+import 'pages/helados.dart'; // Importamos la página de helados.
 import 'pages/tortas.dart'; // Importamos la página de tortas.
+import 'widgets/food_grid.dart';
 
 void main() => runApp(const MyApp());
 
@@ -36,12 +37,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  // Cambia esto para que use un widget de grilla para la página inicial
   List<Widget> _widgetOptions() {
     return [
-      FoodGrid(foodItems: widget.foodItems), // Página de inicio
-      TortasPage(tortas: parseTortas()), // Cambiar a Tortas
-      HeladosPage(helados: parseHelados()), // Cambiar a Helados
+      FoodGrid(foodItems: widget.foodItems), // Página de inicio usando FoodGrid
+      TortasPage(tortas: parseTortas()), // Página de tortas
+      HeladosPage(helados: parseHelados()), // Página de helados
     ];
   }
 
@@ -56,12 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Image.asset('assets/imgs/logo.png', width: 200, height: 200),
-        title: const Text('My Food Gallery'),
+        title: const Text('My Food Gallery**'),
         centerTitle: true,
         backgroundColor: Colors.orangeAccent,
       ),
-      body:
-          _widgetOptions()[_selectedIndex], // Muestra la página correspondiente
+      body: _widgetOptions()[_selectedIndex], // Muestra la página correspondiente
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
@@ -79,81 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.orange, // Cambia el color de selección aquí
-        unselectedItemColor:
-            Colors.grey, // Cambia el color de los no seleccionados
+        selectedItemColor: Colors.orange,
+        unselectedItemColor: Colors.grey,
       ),
-    );
-  }
-}
-
-class FoodGrid extends StatelessWidget {
-  final List<dynamic> foodItems;
-
-  const FoodGrid({super.key, required this.foodItems});
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.all(8),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        childAspectRatio: 0.75,
-      ),
-      itemCount: foodItems.length,
-      itemBuilder: (context, index) {
-        final item = foodItems[index];
-
-        return Card(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(item['image']),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item['nombre'],
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 15.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '\$${item['precio'].toStringAsFixed(2)}',
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.star,
-                                color: Colors.yellow[700], size: 16),
-                            Text(' ${item['estrellas']}'),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
-      },
     );
   }
 }

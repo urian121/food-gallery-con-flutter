@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/FoodGrid.dart'; // Asegúrate de que este import esté correcto
+import '../widgets/food_grid.dart'; // Asegúrate de que este import esté correcto
 
 class TortasPage extends StatelessWidget {
   final List<dynamic> tortas;
