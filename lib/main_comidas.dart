@@ -6,22 +6,22 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   static const List<String> imageAssets = [
-    'assets/comidas/1.jpg',
-    'assets/comidas/2.jpg',
-    'assets/comidas/3.jpg',
-    'assets/comidas/4.jpg',
-    'assets/comidas/5.jpg',
-    'assets/comidas/6.jpg',
-    'assets/comidas/7.jpg',
-    'assets/comidas/8.jpg',
-    'assets/comidas/9.jpg',
-    'assets/comidas/10.jpg',
-    'assets/comidas/11.jpg',
-    'assets/comidas/12.jpg',
-    'assets/comidas/13.jpg',
-    'assets/comidas/14.jpg',
-    'assets/comidas/15.jpg',
-    'assets/comidas/16.jpg',
+    'assets/hamburguesas/1.jpg',
+    'assets/hamburguesas/2.jpg',
+    'assets/hamburguesas/3.jpg',
+    'assets/hamburguesas/4.jpg',
+    'assets/hamburguesas/5.jpg',
+    'assets/hamburguesas/6.jpg',
+    'assets/hamburguesas/7.jpg',
+    'assets/hamburguesas/8.jpg',
+    'assets/hamburguesas/9.jpg',
+    'assets/hamburguesas/10.jpg',
+    'assets/hamburguesas/11.jpg',
+    'assets/hamburguesas/12.jpg',
+    'assets/hamburguesas/13.jpg',
+    'assets/hamburguesas/14.jpg',
+    'assets/hamburguesas/15.jpg',
+    'assets/hamburguesas/16.jpg',
   ];
 
   @override
