@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../pages/detail_page.dart'; // Asegúrate de importar la página de detalles
 
 class FoodGrid extends StatelessWidget {
   final List<dynamic> foodItems;
@@ -62,6 +63,21 @@ class FoodGrid extends StatelessWidget {
                           ],
                         ),
                       ],
+                    ),
+                    const SizedBox(height: 10.0),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // Navegar a la página de detalles
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HeladoDetailPage(itemSeleccionado: item), // Navegar y pasar el item Seleccionado
+                            ),
+                          );
+                        },
+                        child: const Text('Ver Detalles'),
+                      ),
                     ),
                   ],
                 ),
