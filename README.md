@@ -33,7 +33,3 @@ Fácil navegación entre diferentes categorías de comida
     Da las gracias públicamente 🤓.
 
 ## No olvides SUSCRIBIRTE 👍
-
-
-#### Notas
-Dart recomienda que los nombres de archivos sean en minúsculas y separados por guiones bajos (lower_case_with_underscores), en lugar de usar camel case (FoodGrid.dart). Esto no afectará el funcionamiento de tu código, pero es una convención de estilo que ayuda a mantener consistencia en proyectos grandes.
